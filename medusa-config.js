@@ -34,12 +34,13 @@ const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
-  // {
-  //   resolve: `@medusajs/file-local`,
-  //   options: {
-  //     upload_dir: "uploads",
-  //   },
-  // },
+  {
+    resolve: `@medusajs/file-local`,
+    options: {
+      upload_dir: "uploads/images",
+      backend_url: "https://fn-backend-production.up.railway.app"
+    },
+  },
   {
     resolve: "@medusajs/admin",
     /** @type {import('@medusajs/admin').PluginOptions} */
@@ -50,16 +51,16 @@ const plugins = [
       },
     },
   },
-  {
-    resolve: `medusa-file-minio`,
-    options: {
-        endpoint: process.env.MINIO_ENDPOINT,
-        bucket: process.env.MINIO_BUCKET,
-        access_key_id: process.env.MINIO_ACCESS_KEY,
-        secret_access_key: process.env.MINIO_SECRET_KEY,
-        backend_url: "https://fn-backend-production.up.railway.app"
-    },
-  },
+  // {
+  //   resolve: `medusa-file-minio`,
+  //   options: {
+  //       endpoint: process.env.MINIO_ENDPOINT,
+  //       bucket: process.env.MINIO_BUCKET,
+  //       access_key_id: process.env.MINIO_ACCESS_KEY,
+  //       secret_access_key: process.env.MINIO_SECRET_KEY,
+  //       backend_url: "https://fn-backend-production.up.railway.app"
+  //   },
+  // },
 ];
 
 const modules = {
