@@ -40,8 +40,7 @@ const plugins = [
         endpoint: process.env.MINIO_ENDPOINT,
         bucket: process.env.MINIO_BUCKET,
         access_key_id: process.env.MINIO_ACCESS_KEY,
-        secret_access_key: process.env.MINIO_SECRET_KEY,
-        backend_url: "https://fn-backend-production.up.railway.app"
+        secret_access_key: process.env.MINIO_SECRET_KEY
     },
   },
   {
