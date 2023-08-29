@@ -35,10 +35,13 @@ const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
   {
-    resolve: `@medusajs/file-local`,
+    resolve: `medusa-file-minio`,
     options: {
-      upload_dir: "uploads/images",
-      backend_url: "https://fn-backend-production.up.railway.app"
+        endpoint: process.env.MINIO_ENDPOINT,
+        bucket: process.env.MINIO_BUCKET,
+        access_key_id: process.env.MINIO_ACCESS_KEY,
+        secret_access_key: process.env.MINIO_SECRET_KEY,
+        backend_url: "https://fn-backend-production.up.railway.app"
     },
   },
   {
@@ -51,16 +54,6 @@ const plugins = [
       },
     },
   },
-  // {
-  //   resolve: `medusa-file-minio`,
-  //   options: {
-  //       endpoint: process.env.MINIO_ENDPOINT,
-  //       bucket: process.env.MINIO_BUCKET,
-  //       access_key_id: process.env.MINIO_ACCESS_KEY,
-  //       secret_access_key: process.env.MINIO_SECRET_KEY,
-  //       backend_url: "https://fn-backend-production.up.railway.app"
-  //   },
-  // },
 ];
 
 const modules = {
